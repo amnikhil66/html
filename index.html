@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML Basics</title>
+
+	<meta charset="utf-8">
+	<meta name="author" content="Nikhil AM">
+	<meta name="description" content="HTML and CSS basics session.">
+
+	<link rel="stylesheet" href="css/reveal.min.css">
+	<link rel="stylesheet" href="css/main.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="css/zenburn.css">
+
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<script>
+		document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="js/libs/html5shiv.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<header>
+					<h1>HTML 101</h1>
+				</header>
+			</section>
+			<section>
+				<section>
+					<header>
+						<h2>A Brief History of HTML</h2>
+					</header>
+				</section>
+				<section>
+					<header>
+						<h3>1989</h3>
+					</header>
+				</section>
+				<section>
+					<header>
+						<h3>An Unlikely Place of Birth</h3>
+					</header>
+					<figure>
+						<img src="css/images/cern.jpg">
+						<figcaption>The European Organization for Nuclear Research/Organisation européenne pour la recherche nucléaire AKA CERN</figcaption>
+					</figure>
+				</section>
+				<section>
+					<header>
+						<h3>The Brains Behind it!!</h3>
+					</header>
+					<figure>
+						<img src="css/images/inventor_2.png">
+						<figcaption>'Sir' Tim Berners Lee</figcaption>
+					</figure>
+				</section>
+				<section>
+					<header>
+						<h3>The 1989 <a href="http://ironman.wikia.com/wiki/J.A.R.V.I.S.">J.A.R.V.I.S</a></h3>
+					</header>
+					<figure>
+						<img src="css/images/next_cube.jpg">
+						<figcaption>The NeXT Cube</figcaption>
+					</figure>
+				</section>
+				<section>
+					<header>
+						<h3><a href="http://cds.cern.ch/record/1164399?ln=en">The Holy Scroll</a></h3>
+					</header>
+				</section>
+				<section>
+					<header>
+						<h3>Timeline</h3>
+					</header>
+					<iframe src='http://cdn.knightlab.com/libs/timeline/latest/embed/index.html?source=0AmwkdviksNHtdDkwNzZJYWoxYy1fSzBQYllpQ2JLT2c&font=Bevan-PotanoSans&maptype=TERRAIN&lang=en&height=500' width='70%' height='500' frameborder='0'></iframe>
+				</section>
+				<section>
+					<header>
+						<h4>Must Read</h4>
+						<ul>
+							<li>
+								<a href="http://www.w3.org/People/Raggett/book4/ch02.html">A history of HTML</a>
+							</li>
+							<li>
+								<a href="http://home.web.cern.ch/about/birth-web">The birth of the web</a>
+							</li>
+							<li>
+								<a href="http://info.cern.ch/hypertext/WWW/TheProject.html">The very first web page</a>
+							</li>
+							<li>
+								<a href="http://diveintohtml5.info/past.html">The IMG tag discussion (Topic: A LONG DIGRESSION INTO HOW STANDARDS ARE MADE)</a>
+							</li>
+						</ul>
+					</header>
+				</section>
+			</section>
+			<section>
+				<header>
+					<h3>First HTML page</h3>
+				</header>
+			</section>
+			<section>
+				<header>
+					<h3>Tree</h3>
+				</header>
+				<figure id="html_tree">
+					<img src="css/images/html_tree.png">
+					<figcaption>HTML Inspector in chrome</figcaption>
+				</figure>
+			</section>
+			<section>
+				<header>
+					<h3>DOM</h3>
+				</header>
+				<figure id="dom_structure">
+					<img src="css/images/dom_structure.png">
+					<figcaption>DOM Structure; Source: <a href="">Wikipedia</a></figcaption>
+				</figure>
+			</section>
+			<section>
+				<header>
+					<h3>Everything in it's place</h3>
+				</header>
+				<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Demo Structure&lt;title&gt;
+    &lt;link href="css/main.css"&gt;
+    &lt;script src="js/main.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;...&lt;/h1&gt;
+    &lt;div class="container"&gt;
+      &lt;div&gt;
+        ...
+      &lt;/div&gt;
+      &lt;span&gt;
+        ...
+      &lt;/span&gt;
+      &lt;table class="..."&gt;
+        ...
+      &lt;/table&gt;
+      &lt;form&gt;
+       ...
+      &lt;/form&gt;
+    &lt;/div&gt;
+
+    &lt;script src="..."&gt;&lt;/script&gt;
+    &lt;script src="..."&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+				</code></pre>
+			</section>
+			<section>
+				<section>
+					<header>
+						<h2>Tags</h2>
+					</header>
+				</section>
+				<section>
+					<header>
+						<h3>The Bare Necessities </h3>
+					</header>
+					<ul>
+						<li>
+							<p>HTML root</p>
+							<pre><code>
+&lt;html&gt;&lt;/html&gt;
+							</code></pre>
+						</li>
+						<li>
+							<p>Head</p>
+							<pre><code>
+&lt;head&gt;&lt;/head&gt;
+							</code></pre>
+						</li>
+						<li>
+							<p>Title</p>
+							<pre><code>
+&lt;title&gt;&lt;/title&gt;
+							</code></pre>
+						</li>
+						<li>
+							<p>Body</p>
+							<pre><code>
+&lt;body&gt;&lt;/body&gt;
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<header>
+						<h3>The little ones</h3>
+					</header>
+					<ul>
+						<li>
+							<p>Headers</p>
+							<pre><code class="xml">&lt;h(1-6)&gt;&lt;/h(1-6)&gt;</code></pre>
+						</li>
+						<li>
+							<p>Paragraph</p>
+							<pre><code class="xml">&lt;p&gt;&lt;/p&gt;</code></pre>
+						</li>
+						<li>
+							<p>Anchor</p>
+							<pre><code class="xml">&lt;a href=&quot;...&quot;&gt;&lt;/a&gt;</code></pre>
+						</li>
+						<li>
+							<p>Image</p>
+							<pre><code class="xml">&lt;img src=&quot;...&quot; alt=&quot;...&quot;&gt;</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<header>
+						<h3>The Complex Gaints</h3>
+					</header>
+				</section>
+				<section>
+					<header>
+						<h4>Unordered Lists</h4>
+					</header>
+					<pre class="xml"><code>
+&lt;ul&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+					</code></pre>
+				</section>
+				<section>
+					<header>
+						<h4>Ordered List</h4>
+					</header>
+					<pre class="xml"><code>
+&lt;ol&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+  &lt;li&gt;...&lt;/li&gt;
+&lt;/ol&gt;
+					</code></pre>
+				</section>
+				<section>
+					<header>
+						<h4>Defintion Lists</h4>
+					</header>
+					<pre class="xml"><code>
+&lt;dl&gt;
+  &lt;dt&gt;...&lt;/dt&gt;
+  &lt;dd&gt;...&lt;/dd&gt;
+
+  &lt;dt&gt;...&lt;/dt&gt;
+  &lt;dd&gt;...&lt;/dd&gt;
+&lt;/dl&gt;
+					</code></pre>
+				</section>
+				<section>				
+					<header>
+						<h4>Table</h4>
+					</header>
+					<pre class="xml"><code>
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;...&lt;/th&gt;
+      &lt;th&gt;...&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;...&lt;/td&gt;
+      &lt;td&gt;...&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+					</code></pre>
+				</section>
+				<section>
+					<header>
+						<h4>Forms</h4>
+					</header>
+					<pre class="xml"><code>
+&lt;form action=&quot;...&quot; method=&quot;...&quot;&gt;
+  &lt;label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;...&quot;&gt;
+  &lt;/label&gt;
+  &lt;label for=&quot;...&quot;&gt;...&lt;/label&gt;
+  &lt;input id=&quot;...&quot; type=&quot;text&quot; name=&quot;...&quot;&gt;
+  &lt;label for=&quot;...&quot;&gt;&lt;/label&gt;
+  &lt;select&gt;
+    &lt;option&gt;...&lt;/option&gt;
+    &lt;option&gt;...&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;label for=&quot;...&quot;&gt;...&lt;/label&gt;
+  &lt;input type=&quot;...&quot; type=&quot;checkbox&quot; name=&quot;...&quot; value=&quot;...&quot;&gt;
+  &lt;label for=&quot;...&quot;&gt;...&lt;/label&gt;
+  &lt;textarea id=&quot;...&quot; cols=&quot;...&quot; row=&quot;...&quot;&gt;&lt;/textarea&gt;
+
+  &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+  &lt;input type=&quot;cancel&quot; value=&quot;cancel&quot;&gt;
+&lt;/form&gt;
+					</code></pre>
+				</section>
+				<section>
+					<header>
+						<h3>DIV and SPAN the distant cousins</h3>
+					</header>
+					<pre class="xml"><code>
+&lt;div&gt;&lt;/div&gt;
+&lt;span&gt;&lt;/span&gt;
+					</code></pre>
+				</section>
+				<section>
+					<header>
+						<h3>The real Big Shots</h3>
+					</header>
+					<ul>
+						<li>
+							<p>Meta</p>
+							<pre class="xml"><code>
+&lt;meta charset=&quot;...&quot;&gt;
+&lt;meta http-equiv=&quot;...&quot; content=&quot;...&quot;&gt;
+&lt;meta name=&quot;...&quot;&gt;
+							</code></pre>
+						</li>
+						<li>
+							<p>Link</p>
+							<pre class="xml"><code>
+&lt;link rel=&quot;...&quot; href=&quot;...&quot;&gt;
+							</code></pre>
+						</li>
+						<li>
+							<p>Script</p>
+							<pre class="xml"><code>
+&lt;script type=&quot;...&quot; src=&quot;...&quot;&gt;&lt;/script&gt;
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<header>
+						<h2>HTML5</h2>
+					</header>
+				</section>
+				<section>
+					<header>
+						<h3>Semantics</h3>
+					</header>
+					<ul>
+						<li>
+							<p>Header</p>
+							<pre><code class="xml">
+&lt;header&gt;Put Here Headers here&lt;/header&gt;
+							</code></pre>
+						</li>
+						<li>
+							<p>Navigation</p>
+							<pre><code class="xml">
+&lt;nav&gt;This holds your menu&lt;/nav&gt;
+							</code></pre>
+						</li>
+						<li>
+							<p>Time</p>
+							<pre><code class="xml">
+&lt;time datetime="2014-02-03"&gt;3, Feburary 2014&lt;/time&gt;
+							</code></pre>
+						</li>
+						<li>
+							<p>Aside</p>
+							<pre><code class="xml">
+&lt;aside&gt;Side Show goes here&lt;/aside&gt;
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<header>
+						<h3>Semantics</h3>
+					</header>
+					<ul>
+						<li>
+							<p>Mark</p>
+							<pre><code class="xml">
+&lt;mark&gt;Mark your text&lt;/mark&gt;
+							</code></pre>
+						</li>
+						<li>
+							<p>Footer</p>
+							<pre><code class="xml">
+&lt;footer&gt;Your Copyright and trademark info will be here&lt;/footer&gt;
+							</code></pre>
+						</li>
+						<li>
+							<p>Article</p>
+							<pre><code class="xml">
+&lt;article&gt;Write your posts, in a semantic way&lt;/article&gt;
+							</code></pre>
+						</li>
+						<li>
+							<p>Section</p>
+							<pre><code class="xml">
+&lt;section&gt;
+	&lt;article&gt;
+			Structure your layout not only with styles, 
+			but also semantically as well
+	&lt;/article&gt;
+&lt;/section&gt;
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<header>
+						<h3>Forms</h3>
+					</headrer>
+					<ul>
+						<li>
+							<p>Form Attributes</p>
+							<pre><code class="xml">
+&lt;form action="example.php" method="POST" novalidate&gt;
+							</code></pre>
+						</li>
+						<li>
+							<p>Input Attributes</p>
+							<pre><code class="xml">
+&lt;input type="text" name="name" autofocus placeholder="Name"&gt;
+&lt;input type="url" name="url" placeholder="https://www.example.com"&gt;
+&lt;input type="number" name="number" placeholder="1234567"&gt;
+&lt;input type="email" name="email" placeholder="john.doe@example.com" required&gt;
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section id="test" data-easter-egg="bunny">
+					<header>
+						<h3>Meta Data</h3>
+					</header>
+					<pre><code class="xml">
+&lt;div data-easter-egg="bunny"&gt;
+...
+...
+&lt;/div&gt;
+					</code></pre>
+				</section>
+			</section>
+			<section>
+				<header>
+					<h3>CSS 101</h3>
+				</header>
+			</section>
+			<section>
+				<section>
+					<header>
+						<h3>Why CSS</h3>
+					</header>
+				</section>
+				<section>
+					<header>
+						<h4>Lakmè Salon for HTML</h4>
+					</header>
+					<span class="ib_span">
+						<div>Before</div>
+						<img src="css/images/html.png">
+					</span>					
+					<span class="ib_span">
+						<div>After</div>
+						<img src="css/images/html_css.png">
+					</span>
+				</section>
+				<section>
+					<header>
+						<h4>It's all About Levels</h4>
+					</header>
+					<figure>
+						<img src="css/images/levels.png">
+						<figcaption>Level Up!</figcaption>
+					</figure>
+				</section>
+				<section>
+					<header>
+						<h4>A Look Under the Hood</h4>
+					</header>
+					<figure>
+						<a class="image" href="http://taligarsiel.com/Projects/howbrowserswork1.htm"><img src="css/images/engine_1.png"></a>
+						<figcaption>Image Source: <a href="http://www.scoop.co.nz/">Scoop</a></figcaption>
+					</figure>
+				</section>
+				<section>
+					<header>
+						<h4>A Powerful Combo</h4>
+					</header>
+					<p>HTML, CSS and JavaScript</p>
+				</section>
+			</section>
+			<section>
+				<header>
+					<h4>Adding CSS to a Page</h4>
+				</header>
+				<ul>
+					<li>
+						<p>Style Attribute</p>
+						<pre class="xml"><code>
+&lt;div style=&quot;...&quot;&gt;&lt;/div&gt;
+						</code></pre>
+					</li>
+					<li>
+						<p>Style</p>
+						<pre class="xml"><code>
+&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;
+						</code></pre>
+					</li>
+					<li>
+						<p>Link</p>
+						<pre class="xml"><code>
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;...&quot;&gt;
+						</code></pre>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<section>
+					<header>
+						<h4>Selectors</h4>
+					</header>
+				</section>
+				<section>
+					<ul>
+						<li>
+							<p>Universal</p>
+							<pre class="css"><code>
+* {
+  color: #555;
+}
+							</code></pre>
+						</li>
+						<li>
+							<p>Type</p>
+							<pre class="css"><code>
+p{
+  color: #59dcc5;
+}
+							</code></pre>
+						</li>
+						<li>
+							<p>Descendant</p>
+							<pre class="css"><code>
+div p{
+  color: #34bee1;
+}
+							</code></pre>
+						</li>
+						<li>
+							<p>Child</p>
+							<pre class="css"><code>
+span > p{
+  color: #eac532;
+}
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<header>
+						<h3>Precedence So Far</h3>
+					</header>
+					<p>
+						Universal < Type < Descendant < Child
+					</p>
+				</section>
+				<section>
+					<ul>
+						<li>
+							<p>Adjacent</p>
+							<pre class="css"><code>
+h1 + div{
+  color: #0b75f8;
+}
+							</code></pre>
+						</li>
+						<li>
+							<p>Pseudo Classes</p>
+							<pre class="css"><code>
+/*** Postion Based ***/
+ul > li:first-child{
+  font-weight: bold;
+}
+
+/*** Link Based ***/
+a:link{
+  color: #00b168;
+}
+a:visited{
+  color: #1d9a67;
+}
+
+/*** State Based ***/
+button:hover{
+  color:#d7830a;
+}
+button:focus{
+  color:#d2a76a;	
+}
+button:active{
+  color:#d5963c;
+}
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<header>
+						<h3>Precedence So Far</h3>
+					</header>
+					<p>
+						Universal < Type < Descendant < Child < Adjacent <
+					</p>
+					<p>
+						Pseudo Classes
+					</p>				
+				</section>
+				<section>
+					<ul>
+						<li>
+							<p>Pseudo Elements</p>
+							<pre class="css"><code>
+p:first-line{
+  text-decoration: underline;
+}
+p:first-letter{
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+:before{
+  content: '"';
+  color: #666;
+}
+:after{
+  content: '"';
+  color: #666;
+}
+							</code></pre>
+						</li>
+
+					</ul>
+				</section>
+				<section>
+					<header>
+						<h3>Precedence So Far</h3>
+					</header>
+					<p>
+						Universal < Type < Descendant < Child < Adjacent <
+					</p>
+					<p>
+						Pseudo Classes < Pseudo Elements
+					</p>				
+				</section>
+				<section>
+					<ul>
+						<li>
+							<p>Attribute</p>
+							<pre class="css"><code>
+input[type]{
+  border: 1px solid #333;
+}
+input[type="text"]{
+  font-size: 14px;
+}
+input[class^="name"]{
+	border: 1px solid #999;
+}
+input[class$="name"]{
+	border: 1px solid #999;
+}
+input[class*="name"]{
+	border: 1px solid #999;
+}
+input[class~="first"]{
+	border: 1px solid #999;
+}
+input[class|="name"]{
+	border: 1px solid #999;
+}
+
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<header>
+						<h3>Precedence So Far</h3>
+					</header>
+					<p>
+						Universal < Type < Descendant < Child < Adjacent <
+					</p>
+					<p>
+						Pseudo Classes < Pseudo Elements < Attributes
+					</p>				
+				</section>
+				<section>
+					<ul>
+						<li>
+							<p>Class</p>
+							<pre class="css"><code>
+div.example{
+  color: #6762a9;
+  font-size: 12px;
+}
+							</code></pre>
+						</li>
+						<li>
+							<p>ID</p>
+							<pre class="css"><code>
+div#unique_div{
+  color: #469dc6;
+  font-size: 15px;
+}
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<header>
+						<h3>Precedence So Far</h3>
+					</header>
+					<p>
+						Universal < Type < Descendant < Child < Adjacent <
+					</p>
+					<p>
+						Pseudo Classes < Pseudo Elements < Attributes <
+					</p>
+					<p>
+						Class < ID
+					</p>
+				</section>
+			</section>
+			<section>
+				<header>
+					<img src="css/images/color.png">
+				</header>
+				<ul>
+					<li>
+						<p>Name</p>
+						<pre class="css"><code>
+color: 'black';
+						</code></pre>
+					</li>
+					<li>
+						<p>Hex</p>
+						<pre class="css"><code>
+color: #000;
+color: #000000;
+						</code></pre>
+					</li>
+					<li>
+						<p>Function</p>
+						<pre class="css"><code>
+color: rbg(0, 0, 0);
+color: rbga(0, 0, 0, 0);
+						</code></pre>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<header>
+					<h3>A Measure of Style</h3>
+				</header>
+				<ul>
+					<li>
+						<p>%</p>
+						<pre class="css"><code>
+div{
+  width: 50%;
+  height: 50%;
+}
+						</code></pre>
+					</li>
+					<li>
+						<p>PX</p>
+						<pre class="css"><code>
+div{
+  width: 50px;
+  height: 50px;
+}
+						</code></pre>
+					</li>
+					<li>
+						<p>EM</p>
+						<pre class="css"><code>
+div{
+  width: 2em;
+  height: 2em;
+}
+						</code></pre>
+					</li>
+				</ul>
+				<footer>
+					<p>Want a more indepth look at what was covered?</p>
+					<ul>
+						<li>
+							<a href="http://www.w3.org/Style/Examples/007/units.en.html">What W3C has to say</a>
+						</li>
+						<li>
+							<a href="http://css-tricks.com/css-font-size/">What Chris at CSS Tricks has to say</a>
+						</li>
+					</ul>
+				</footer>
+			</section>
+			<section>
+				<section>
+					<header>
+						<h3>Display Properties</h3>
+					</header>
+					<ul>
+						<li>
+							<p>Display</p>
+							<pre class="css">
+								<code>
+display: block|inline|inline-block|none(default)|list-item|table
+								</code>
+							</pre>
+						</li>
+						<li>
+							<p>Postion</p>
+							<pre class="css">
+								<code>
+position: relative|absolute|fixed|static(default)
+top: px|%
+left: px|%
+bottom: px|%
+right: px|%
+								</code>
+							</pre>
+						</li>
+						<li>
+							<p>Float</p>
+							<pre class="css">
+								<code>
+float: left|right|none(default)
+clear: left|right|both|none(default)
+								</code>
+							</pre>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<header>
+						<h3>Box Model</h3>
+					</header>
+					<figure>
+						<img src="css/images/box_model.png">
+						<figcaption>Box Model as shown on Firebug</figcaption>
+					</figure>
+				</section>
+				<section>
+					<header>
+						<h4>Padding</h4>
+					</header>
+
+					<pre class="css"><code>
+/*** Individuals ***/
+
+padding-top: 10px;
+padding-bottom 10px;
+padding-left: 10px;
+padding-right: 10px;
+
+/*** Shorthand ***/
+
+padding: 10px 5px 5px 10px; /*** top, right, bottom, left ***/
+padding: 10px 10px;         /*** top/bottom, left/right ***/
+padding: 10px;              /*** top/left/right/bottom ***/
+					</code></pre>
+				</section>
+				<section>
+					<header>
+						<h4>Border</h4>
+					</header>
+					<pre class="css"><code>
+/*** Individuals ***/
+
+border-style: none|solid|dotted|dashed|double|groove|ridge|inset|outset|hidden
+border-top-style: solid;
+border-bottom-style: dotted;
+border-left-style: dashed
+border-right-style: double;
+
+border-width: 2px;
+border-top-width: 2px;
+border-bottom-width: 2px;
+border-left-width: 2px;
+border-right-width: 2px;
+
+border-color: #666;
+
+/*** Shorthand ***/
+
+border-top: 2px solid red;
+border-bottom: 2px dotted blue;
+border-left: 2px none green;
+border-right: 2px dashed black;
+
+border: 2px solid black;
+					</code></pre>
+				</section>
+				<section>
+					<header>
+						<h4>Margin</h4>
+					</header>
+					<pre class="css"><code>
+/*** Individuals ***/
+
+margin-top: 10px;
+margin-bottom: 10px;
+margin-left: 10px;
+margin-right: 10px;
+
+/*** Shorthand ***/
+
+margin: 10px 5px 5px 10px;  /*** top, right, bottom, left ***/
+margin: 10px 10px;          /*** top/bottom, left/right ***/
+margin: 10px;               /*** top/left/right/bottom ***/
+					</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<header>
+						<h3>Background</h3>
+					</header>
+				</section>
+				<section>
+					<pre class="css"><code>
+/*** Individuals ***/
+
+background-color: none|transparent(default)|#999;
+background-image: none(default)|url(background.png);
+background-repeat: repeat(default)| repeat-x|repeat-y|no-repeat;
+background-attachment: scroll(default)|fixed;
+backgrount-position: top|left|right|bottom|center|top left(combos)|50%(width) 50%(height);
+
+/*** Shorthand ***/
+
+background: #999 url(background.png) no-repeat top left;
+
+
+					</code></pre>
+				</section>				
+			</section>
+			<section>
+				<header>
+					<h3>Layouts</h3>
+				</header>
+				<figure>
+					<img src="css/images/layout.png">
+					<figcaption>CCTV(China Central Television) Headquaters, Beijing, Chain</figcaption>
+				</figure>
+			</section>
+			<section>
+				<section>
+					<header>
+						<h2>CSS3</h2>
+					</header>
+				</section>
+				<section>
+					<header>
+						<h3>Selectors</h3>
+					</header>
+				</section>
+				<section>
+					<header>
+						<h3>Transfom</h3>
+					</header>
+				</section>
+				<section>
+					<header>
+						<h3>Transistion</h3>
+					</header>
+				</section>
+				<section>
+					<header>
+						<h3>Animation</h3>
+					</header>
+				</section>
+			</section>
+			<section>
+				<header id="text" class="hats-off">
+					<h1>T</h1>
+				</header>
+				<header class="hats-off">
+					<h1>U</h1>
+				</header>
+			</section>
+		</div>
+	</div>
+
+	<script src="js/libs/head.min.js"></script>
+	<script src="js/libs/reveal.min.js"></script>
+
+	<script>
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+			// Parallax scrolling
+			// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+			// parallaxBackgroundSize: '2100px 900px',
+
+			// Optional libraries used to extend on reveal.js
+			dependencies: [
+				{ src: 'js/libs/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'js/libs/plugins/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'js/libs/plugins/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'js/libs/plugins/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'js/libs/plugins/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: 'js/libs/plugins/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
+		});
+	</script>
+</body>
+</html>
