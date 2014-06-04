@@ -975,25 +975,95 @@ background: #999 url(background.png) no-repeat top left;
 					<header>
 						<h3>Selectors</h3>
 					</header>
-					<pre><code></code></pre>
+					<pre><code>
+h1 ~ div{
+	color: #aeaeae;
+}
+li:nth-last-child(2){
+	font-weight: bold;
+}
+p:first-of-type{
+	color: blue;
+}
+p:last-of-type{
+	color: blue;
+}
+p:nth-of-type(3){
+	background-color: #999;
+}
+p::before,
+p::after{
+	content: '"';
+	font-size: 24px;
+}
+
+					</code></pre>
+					<a href="http://www.w3.org/TR/css3-selectors/#selectors">Complete List of CSS3 Selectors</a>
 				</section>
 				<section>
 					<header>
 						<h3>Transfoms</h3>
 					</header>
-					<pre><code></code></pre>
+					<pre><code>
+div{
+	transform: scale(2, 2);
+	transform: translate(100px, 100px);
+	transform: rotate(45deg);
+	transform: skew(2, 2);
+
+	transform: scale(2, 2), skew(1, 2), translate(100px, 100px), rotate(45deg)
+
+	transform-orign: 10px 10px;
+}
+					</code></pre>
 				</section>
 				<section>
 					<header>
 						<h3>Transistions</h3>
 					</header>
-					<pre><code></code></pre>
+					<pre><code>
+div{
+	tranistion-property: background-color;
+	tranistion-duration: 1s;
+	tranistion-timing-function: ease;
+	tranistion-delay: 1s;
+
+	tranistion: background-color 1s ease 1s;
+
+	background-color: #000;	
+}
+
+div:hover{
+	background-color: #fff;
+}
+					</code></pre>
 				</section>
 				<section>
 					<header>
 						<h3>Animation</h3>
 					</header>
-					<pre><code></code></pre>
+					<pre><code>
+@keyboard animate{
+	0%{
+		background-color: #000;
+	}
+	100%{
+		background-color: #fff;
+	}
+}
+
+div{
+	animation-name: animate;
+	animation-duration: 3s;
+	animation-timing-function: ease|ease-in|ease-out|ease-in-out|linear;
+	animation-delay: 1s;
+	animation-iternation-count: 2;
+	animation-direction: alternate|reverse|alternate-reverse|normal(default);
+	animation-fill-out: forwards|backwards|both|none(default);
+
+	animation: animate 3s ease-in 1s 2 alternate;
+}
+					</code></pre>
 				</section>
 			</section>
 			<section>
